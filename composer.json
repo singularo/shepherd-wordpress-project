@@ -17,6 +17,10 @@
         {
             "type":"vcs",
             "url":"https://github.com/johnpbloch/wp-cli-phar.git"
+        },
+        {
+            "type":"vcs",
+            "url":"https://github.com/singularo/shepherd-wordpress-scaffold.git"
         }
     ],
     "minimum-stability": "dev",
@@ -25,11 +29,18 @@
         "bin-dir": "bin/",
         "sort-packages": true
     },
+    "scripts": {
+        "shepherd-scaffold": "UniversityOfAdelaide\\ShepherdWordpressScaffold\\Plugin::scaffold",
+        "post-install-cmd": [
+            "@shepherd-scaffold"
+        ]
+    },
     "require": {
         "composer/installers": "^1.2",
         "johnpbloch/wordpress-core-installer": "^1.0",
         "johnpbloch/wordpress-core": "dev-master",
-        "johnpbloch/wp-cli-phar": "dev-master"
+        "johnpbloch/wp-cli-phar": "dev-master",
+        "singularo/shepherd-wordpress-scaffold": "dev-develop"
     },
     "extra": {
         "installer-paths": {
