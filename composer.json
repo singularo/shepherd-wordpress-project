@@ -1,0 +1,45 @@
+{
+    "name":              "singularo/shepherd-wordpress-project",
+    "description":       "Project template for Shepherd Wordpres projects with composer.",
+    "type":              "project",
+    "license":           "GPL-2.0+",
+    "authors":           [
+        {
+            "name": "Simon Lindsay",
+            "role": "Developer"
+        }
+    ],
+    "repositories":[
+        {
+            "type":"composer",
+            "url":"https://wpackagist.org"
+        },
+        {
+            "type":"vcs",
+            "url":"https://github.com/johnpbloch/wp-cli-phar.git"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "bin-dir": "bin/",
+        "sort-packages": true
+    },
+    "require": {
+        "composer/installers": "^1.2",
+        "johnpbloch/wordpress-core-installer": "^1.0",
+        "johnpbloch/wordpress-core": "dev-master",
+        "johnpbloch/wp-cli-phar": "dev-master"
+    },
+    "extra": {
+        "installer-paths": {
+            "web/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+            "web/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+        },
+        "preserve-paths": [
+            "web/wp-config.php",
+            "web/wp-content/uploads"
+        ],
+        "wordpress-install-dir": "web"
+    }
+}
